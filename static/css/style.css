@@ -1,0 +1,16 @@
+body {
+    background: #0f172a; /* navy dark */
+}
+
+.input-custom:focus {
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.4);
+}
+
+.btn-custom {
+    transition: 0.15s ease;
+}
+
+.btn-custom:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
