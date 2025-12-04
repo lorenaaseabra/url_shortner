@@ -48,8 +48,14 @@ The shortened link appears on the page with a Copy button
 No database is required — the service simply transforms URLs
 
 ---
+## How to use?
+
+Just click in here: https://url-shortner-hi7i.onrender.com/
+
+---
 
 ## 📚 Reference
 This project was inspired by the tutorial:
 https://kinsta.com/pt/blog/url-simples-com-python/
+
 
