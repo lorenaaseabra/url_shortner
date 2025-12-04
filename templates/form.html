@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}Short your URL{% endblock %}
+
+{% block content %}
+
+<div class="bg-slate-800/70 backdrop-blur-lg p-8 rounded-2xl border border-slate-700 shadow-xl w-full max-w-lg">
+
+    <h1 class="text-2xl font-semibold mb-2">URL Shortener</h1>
+    <p class="text-gray-400 text-sm mb-6">
+        Short your URL.
+    </p>
+
+    <form method="POST" action="/" class="space-y-5">
+
+        <div>
+            <label class="block text-sm text-gray-400 mb-2" for="url">Submit URL</label>
+
+            <input 
+                class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 input-custom outline-none transition"
+                type="url" 
+                id="url" 
+                name="url" 
+                placeholder="https://exemple.com"
+                required
+                value="{{ old_url }}"
+            >
+        </div>
+
+        <button 
+            class="w-full bg-blue-600 hover:bg-blue-700 transition text-white py-3 rounded-xl font-semibold shadow-md btn-custom"
+            type="submit">
+            Short URL
+        </button>
+
+    </form>
+
+    {% if new_url %}
+    <div class="mt-6">
+        <p class="text-gray-300 text-sm mb-2">URL shortned:</p>
+
+        <div class="flex gap-2">
+            <input
+                class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-blue-400 outline-none"
+                value="{{ new_url }}"
+                readonly
+                id="result"
+            >
+
+            <button 
+                onclick="copyURL()"
+                class="px-4 py-2 bg-slate-700 hover:bg-slate-600 rounded-xl text-sm">
+                Copy
+            </button>
+        </div>
+    </div>
+    {% endif %}
+
+</div>
+
+<script>
+function copyURL() {
+  const input = document.getElementById("result");
+  navigator.clipboard.writeText(input.value);
+  alert("URL copied!");
+}
+</script>
+
+{% endblock %}
